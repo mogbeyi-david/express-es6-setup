@@ -21,13 +21,15 @@ mongoose.connect(`mongodb://${username}:${password}@ds125616.mlab.com:25616/${da
 
 
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use('/api/users', userRouter);
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`App is running on port: ${PORT}`);
 });
 
-export default app;
+export {
+  server, app
+};
 
