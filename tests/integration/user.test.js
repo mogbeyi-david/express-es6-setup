@@ -30,6 +30,11 @@ describe('/api/users', () => {
   });
 
   describe('/GET', () => {
-
+    describe('Getting all users', () => {
+      it('should fetch all the users', async () => {
+        const response = await request(app).get('/api/users');
+        expect(response.statusCode).toEqual(200);
+      }, 30000)
+    })
   });
 });

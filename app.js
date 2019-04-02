@@ -16,7 +16,7 @@ mongoose.connect(`mongodb://${username}:${password}@ds125616.mlab.com:25616/${da
     console.log('Connected to the database...')
   })
   .catch((error) => {
-    console.log(error)
+
   });
 
 
