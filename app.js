@@ -1,8 +1,9 @@
 import mongoose from 'mongoose';
 import 'dotenv/config';
 import express from 'express';
-import {router as userRouter} from "./api/routes/user";
 import bodyParser from 'body-parser';
+
+import {router as userRouter} from "./api/routes/user";
 
 const username = process.env.USERNAME;
 const password = process.env.PASSWORD;

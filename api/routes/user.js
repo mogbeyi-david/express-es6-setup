@@ -5,7 +5,9 @@ import {userController as UserController} from "../controllers/UserController";
 const router = express.Router();
 
 
-router.get('/users', UserController.get);
+router.post('/store', UserController.store);
+router.get('', UserController.get);
+
 
 export {
   router
