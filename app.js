@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import 'dotenv/config';
 import express from 'express';
+import {router as userRouter} from "./api/routes/user";
 
 const username = process.env.USERNAME;
 const password = process.env.PASSWORD;
@@ -15,6 +16,8 @@ mongoose.connect(`mongodb://${username}:${password}@ds125616.mlab.com:25616/${da
   .catch((error) => {
     console.log(error)
   });
+
+app.use('/api/users', userRouter);
 
 app.listen(PORT, () => {
   console.log(`App is running on port: ${PORT}`);

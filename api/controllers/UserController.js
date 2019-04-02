@@ -1,4 +1,4 @@
-import {UserModel} from "../models/user";
+import {UserModel} from "../../models/user";
 
 class UserController {
   get(req, res) {
@@ -14,7 +14,8 @@ class UserController {
   }
 }
 
+const userController = new UserController();
 
 export {
-  UserController
+  userController
 };
