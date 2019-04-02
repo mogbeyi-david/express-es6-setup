@@ -2,7 +2,6 @@ import 'babel-polyfill';
 import request from 'supertest';
 import {UserModel} from "../../models/user";
 import {server} from "../../app";
-import mongoose from 'mongoose';
 
 let app;
 
@@ -18,7 +17,16 @@ describe('/api/users', () => {
   });
 
   describe('/POST', () => {
+    describe('Creating a new user', () => {
+      it('should create a new user when the data is correct', async () => {
+        const payload = {
+          name: 'david mogbeyi'
+        };
 
+        const response = await request(app).post('/api/users/store').send(payload);
+        expect(response.statusCode).toEqual(201);
+      }, 30000)
+    })
   });
 
   describe('/GET', () => {
