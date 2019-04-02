@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import 'dotenv/config';
 import express from 'express';
 import {router as userRouter} from "./api/routes/user";
+import bodyParser from 'body-parser';
 
 const username = process.env.USERNAME;
 const password = process.env.PASSWORD;
@@ -17,6 +18,10 @@ mongoose.connect(`mongodb://${username}:${password}@ds125616.mlab.com:25616/${da
     console.log(error)
   });
 
+
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use('/api/users', userRouter);
 
 app.listen(PORT, () => {
